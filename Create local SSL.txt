@@ -1,4 +1,6 @@
-    param (
+
+    ####################################################################
+   param (
         [Parameter(Mandatory=$true)][string]$certificatename,
         [Parameter(Mandatory=$true)][SecureString]$certificatepassword
      )
@@ -42,3 +44,5 @@
     # optionally delete the physical certificates (don’t delete the pfx file as you need to copy this to your app directory)
     # Remove-Item $pfxFilePath
     Remove-Item $cerFilePath
+    
+    ####################################################################
