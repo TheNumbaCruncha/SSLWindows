@@ -1,5 +1,5 @@
 
-    ####################################################################
+   ####################################################################
    param (
         [Parameter(Mandatory=$true)][string]$certificatename,
         [Parameter(Mandatory=$true)][SecureString]$certificatepassword
