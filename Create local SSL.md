@@ -1,6 +1,6 @@
-   ####################################################################
-   
-   param (
+#### 1. Run following script in PowerShell
+
+    param (
         [Parameter(Mandatory=$true)][string]$certificatename,
         [Parameter(Mandatory=$true)][SecureString]$certificatepassword
      )
@@ -44,5 +44,19 @@
     # optionally delete the physical certificates (don’t delete the pfx file as you need to copy this to your app directory)
     # Remove-Item $pfxFilePath
     Remove-Item $cerFilePath
-    
-    ####################################################################
+
+#### 2. To convert PFX file to seperate PEM and KEY files
+
+    openssl pkcs12 -in C:/tmp/localhost.pfx -clcerts -nokeys -out C:/tmp/pem/certificate.pem
+    openssl rsa -in C:/tmp/pem/key.pem -out C:/tmp/pem/private.key
+
+#### 3. You can copy files under necessary folder and use as following
+
+    http {
+       server {
+          listen 443 ssl;
+    		
+          ssl_certificate /etc/nginx/ssl/certificate.pem;
+          ssl_certificate_key /etc/nginx/ssl/private.key;
+       }
+    }
