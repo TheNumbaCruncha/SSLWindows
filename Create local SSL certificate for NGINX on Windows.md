@@ -50,7 +50,7 @@
     openssl pkcs12 -in C:/tmp/localhost.pfx -clcerts -nokeys -out C:/tmp/pem/certificate.pem
     openssl rsa -in C:/tmp/pem/key.pem -out C:/tmp/pem/private.key
 
-#### 3. You can copy files under necessary folder and use in `nginx.conf` as following
+#### 3. Copy files under /etc/ folder and use in `nginx.conf` as following
 
     http {
        server {
